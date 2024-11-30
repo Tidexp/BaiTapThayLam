@@ -1,24 +1,9 @@
-package BaiTap.ProblemStatement;
+package BaiTap.ProblemStatement.loanCalculator;
 
 import java.util.*;
 
-public class loan {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        // INPUT
-        // Khoản vay
-        System.out.println("Enter loan amount: ");
-        double loanAmount = scanner.nextDouble();
-        
-        // Lãi suất hàng năm
-        System.out.println("Enter annual interest rate (in percentage): ");
-        double annualInterestRate = scanner.nextDouble();
-
-        // Thời gian vay theo năm
-        System.out.println("Enter loan period in years: ");
-        int loanPeriodInYears = scanner.nextInt();
-
+public class Loan {
+    public void calculateLoan(double loanAmount, double annualInterestRate, int loanPeriodInYears){
         // Chuyển từ lãi suất hàng năm sang hàng tháng
         double monthlyInterestRate = (annualInterestRate / 100) / 12;
 
@@ -27,7 +12,7 @@ public class loan {
 
         // Tính toán khoản thanh toán hàng tháng
         double monthlyPayment = (loanAmount * monthlyInterestRate) / (1 - Math.pow( 1 / (1 + monthlyInterestRate), numberOfPayments ));
-        
+
         // Tính tổng số tiền phải thanh toán trong thời gian vay
         double totalPayment = monthlyPayment * numberOfPayments;
 
